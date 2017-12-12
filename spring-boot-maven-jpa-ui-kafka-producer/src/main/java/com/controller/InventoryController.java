@@ -33,11 +33,12 @@ public class InventoryController {
 	 * 
 	 * }
 	 */
-	@RequestMapping(method = RequestMethod.POST, value = "/deviceApi")
+	/*@RequestMapping(method = RequestMethod.POST, value = "/deviceApi")
 	public void saveAlldevice(@RequestBody List<Device> devices) {
+
 		deviceService.addAllDevice(devices);
 
-	}
+	}*/
 
 	/*
 	 * @RequestMapping(value = "/add") public void addDevice() { Device

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -35,7 +36,7 @@ public class DeviceController {
 			@ModelAttribute("deviceForm") Device deviceForm, Model model) {
 
 		if (deviceForm != null) {
-			String topic = "test";
+			String topic = "kafka-app";
 			kafkaTemplate.send(new ProducerRecord<String, Device>(topic,
 					deviceForm));
 
@@ -55,5 +56,16 @@ public class DeviceController {
 
 		return model;
 
+	}
+
+	@RequestMapping(method = RequestMethod.POST, value = "/deviceApi")
+	public void saveAlldevice(@RequestBody List<Device> devices) {
+		String topic = "kafka-app";
+		for (Device device : devices) {
+			kafkaTemplate
+					.send(new ProducerRecord<String, Device>(topic, device));
+		}
+
+		// deviceService.addAllDevice(devices);
 	}
 }
