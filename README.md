@@ -1,7 +1,7 @@
 # device-onboarding
 
 
-per Requirements 
-kafka installation 
-mysql Database 
-Spring boot basic Knowledge
+per Requirements \n
+kafka installation \n
+mysql Database \n
+Spring boot basic Knowledge \n
