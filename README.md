@@ -1,5 +1,5 @@
 # device-onboarding
-per Requirements 
+pre Requirements 
 
 kafka installation 
 
